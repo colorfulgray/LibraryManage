@@ -15,7 +15,7 @@ public class Main extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(800, 600);
-		this.setTitle("鍥句功鍊熼槄绯荤粺");
+		this.setTitle("图书借阅系统");
 		this.setResizable(false);
 		
 		name.setText(user.getName());
