@@ -20,7 +20,7 @@ public class Main extends JFrame {
 		
 		name.setText(user.getName());
 
-		tab.addTab("fucker", new JPanel());
+		tab.addTab("fucker", new Search());
 		tab.addTab("lover", new JPanel());
 		tab.addTab("shitt", new JPanel());
 		
