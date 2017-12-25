@@ -18,18 +18,22 @@ public class FindBook {
 			return true;
 		}
 		
+	}
 		
+	public ResultSet  FindOneBookByInput(String bookinfomation) throws SQLException
+	{
+		DaoFindBook find=new DaoFindBook();
+		return find.FindOneBookFInp(bookinfomation);
 		
 	}
+	
+	
 	public ResultSet FindAllBook() throws SQLException
 	{
 		
 		DaoFindBook find=new DaoFindBook();
-		return find.Findall();
-		
+		return find.Findall();	
 		
 	}
-	
-	
 
 }
