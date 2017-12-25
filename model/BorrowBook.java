@@ -9,7 +9,8 @@ public class BorrowBook {
 	{
 		DaoFindBook find =new DaoFindBook();
 		DaoControl control=new DaoControl();
-		if(find.FindOne(booknumber)==null)
+		
+		if(find.FindOne(booknumber).equals("no"))
 		{
 			
 			return false;
@@ -22,8 +23,5 @@ public class BorrowBook {
 		}
 		
 	}
-	
-	
-	
 
 }
