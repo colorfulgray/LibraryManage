@@ -51,9 +51,9 @@ public class Main extends JFrame {
 		this.setResizable(false);// 是否可自由拉伸
 		name.setText(user.getName() + " ");// 用户姓名
 		name.setForeground(Color.red);// 姓名颜色
-		tab.addTab("Search", Search);// 三个分页面
-		tab.addTab("Return", Return);
-		tab.addTab("History", History);
+		tab.addTab("图书查询", Search);// 三个分页面
+		tab.addTab("归还图书", Return);
+		tab.addTab("历史记录", History);
 		setLayout(new BorderLayout(5, 5));
 		Box hbox = new Box(BoxLayout.X_AXIS);// 主面板标题栏
 		add("North", hbox);
