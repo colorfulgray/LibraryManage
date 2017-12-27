@@ -16,7 +16,6 @@ public class Login extends JFrame {
 	private JLabel l1 = new JLabel("学号:");
 	private JLabel l2 = new JLabel("密码:");
 	private JButton b = new JButton("登录");
-	private JLabel r = new JLabel("");
 	private JTextField id = new JTextField(16);
 	private JPasswordField password = new JPasswordField(16);
 	private JPanel p1 = new JPanel();
@@ -35,12 +34,12 @@ public class Login extends JFrame {
 					new Main(user);
 					dispose();
 				} else {
-					r.setText("账号或密码错误!");
-					r.setBackground(Color.red);
+					JOptionPane.showMessageDialog(null, "用户名或密码错误！", "消息", JOptionPane.ERROR_MESSAGE);
+					password.setText("");
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.printStackTrace();JOptionPane.showMessageDialog(null, "用户名或密码错误！", "消息", JOptionPane.ERROR_MESSAGE);
 			}
 	
 		}
@@ -62,7 +61,6 @@ public class Login extends JFrame {
 		p2.add(l2);
 		p2.add(password);
 		p3.add(b);
-		p3.add(r);
 
 		add(title);
 		add(p1);
