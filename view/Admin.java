@@ -71,7 +71,7 @@ public class Admin extends JFrame {
 		this.user = user;
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(800, 600);
+		this.setSize(600, 450);
 		this.setTitle("图书借阅系统");
 		this.setResizable(false);// 是否可自由拉伸
 		name.setText(user.getName() + " ");// 用户姓名
@@ -91,7 +91,7 @@ public class Admin extends JFrame {
 		hbox.add(name);
 		
 		//sign in 面板
-		signIn.setLayout(new GridLayout(10,1));
+		signIn.setLayout(new GridLayout(8,1));
 		signIn.add(s1);
 		signIn.add(s2);
 		signIn.add(s3);
@@ -115,7 +115,7 @@ public class Admin extends JFrame {
 		numberC.addItem(10);
 		
 		//add book 页面
-		addBook.setLayout(new GridLayout(10,1));
+		addBook.setLayout(new GridLayout(8,1));
 		addBook.add(b1);
 		addBook.add(b2);
 		addBook.add(b3);
@@ -226,9 +226,7 @@ public class Admin extends JFrame {
 	public static void main(String[] args) throws SQLException {
 		// TODO 自动生成的方法存根
 		User a = new User();
-		a.setName("周二");
-		a.setStudentId("08160122");
-		a.setPassWord("22222222");
+		a.setName("admin");
 		new Admin(a);
 	}
 
