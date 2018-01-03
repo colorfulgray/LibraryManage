@@ -14,9 +14,9 @@ import model.User;
 public class Verification {
 
 	
-	public static boolean verification(User user) throws SQLException
+	public static boolean verification(User user,char judly) throws SQLException
 	{
-		String url = "jdbc:sqlserver://localhost:1433; DatabaseName=Í¼Êé¹ÜÀíÏµÍ³";
+		String url = "jdbc:sqlserver://localhost:1433; DatabaseName=å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ";
 		String username = "sa";
 		String password = "qwe123";
 		try 
@@ -30,11 +30,13 @@ public class Verification {
 		}
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement st = conn.createStatement();
-		String sql = "select * from ÓÃ»§  where Ñ§ºÅ='"+user.getStudentId()+"'";
+		
+		if(judly=='a'){
+		String sql = "select * from ç”¨æˆ·  where å­¦å·='"+user.getStudentId()+"'";
 		ResultSet rs = st.executeQuery(sql);
 		rs.next();
 		
-		if(!user.getPassWord().equals(rs.getString("ÓÃ»§ÃÜÂë")))
+		if(!user.getPassWord().equals(rs.getString("ç”¨æˆ·å¯†ç ")))
 		{
 			rs.close();
 			st.close();	
@@ -43,13 +45,37 @@ public class Verification {
 		}
 		else
 		{			
-			user.setName(rs.getString("ĞÕÃû"));	
+			user.setName(rs.getString("å§“å"));	
 			rs.close();
 			st.close();
 			conn.close();
 			return true;
 		}			
-	
-	}
+	  }
+	   else if(judly=='b')
+		{
+			
+			String sql = "select * from ç®¡ç†å‘˜  where è´¦å·='"+user.getStudentId()+"'";
+			ResultSet rs = st.executeQuery(sql);
+			rs.next();
+			
+			if(!user.getPassWord().equals(rs.getString("ç”¨æˆ·å¯†ç ")))
+			{
+				rs.close();
+				st.close();	
+				conn.close();
+				return false;
+			}
+			else
+			{			
+				user.setName(rs.getString("å§“å"));	
+				rs.close();
+				st.close();
+				conn.close();
+				return true;
+			}	
+			
+		}
+  }
 
 }
