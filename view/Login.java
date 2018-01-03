@@ -13,9 +13,10 @@ import javax.swing.*;
 public class Login extends JFrame {
 	
 	private JLabel title = new JLabel("图书借阅系统",JLabel.CENTER);
-	private JLabel l1 = new JLabel("学号:");
+	private JLabel l1 = new JLabel("帐号:");
 	private JLabel l2 = new JLabel("密码:");
-	private JButton b = new JButton("登录");
+	private JButton lo = new JButton("用户登录");
+	private JButton lo2 = new JButton("管理员登录");
 	private JTextField id = new JTextField(16);
 	private JPasswordField password = new JPasswordField(16);
 	private JPanel p1 = new JPanel();
@@ -29,9 +30,17 @@ public class Login extends JFrame {
 			User user = new User();
 			user.setStudentId(id.getText());
 			user.setPassWord(password.getText());
+			char x;
+			if(arg0.getActionCommand().equals("用户登录"))
+				x = 'a';
+			else
+				x = 'b';
 			try {
-				if(Verification.verification(user)) {
-					new Main(user);
+				if (Verification.verification(user,x)) {
+					if (x == 'a')
+						new Main(user);
+					else
+						new Admin(user);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "用户名或密码错误！", "消息", JOptionPane.ERROR_MESSAGE);
@@ -54,14 +63,14 @@ public class Login extends JFrame {
 		//setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setLayout(new GridLayout(6,1));
 		title.setFont(new java.awt.Font("楷体", 1, 20));
-		b.addActionListener(new login());
-		
+		lo.addActionListener(new login());
+		lo2.addActionListener(new login());
 		p1.add(l1);
 		p1.add(id);
 		p2.add(l2);
 		p2.add(password);
-		p3.add(b);
-
+		p3.add(lo);
+		p3.add(lo2);
 		add(title);
 		add(p1);
 		add(p2);
