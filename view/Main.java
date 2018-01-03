@@ -132,8 +132,21 @@ public class Main extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			String bookId = arg0.toString().split(" ")[2];
-			doBorrow(bookId);
+			ReturnBook rb = new ReturnBook();
+			int num = 0;
+			try {
+				ResultSet result = rb.FindAllBookForRet(user);
+				while (result.next())
+					num++;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if (num > 5)
+				JOptionPane.showMessageDialog(null, "借书数已达上限！", "消息", JOptionPane.ERROR_MESSAGE);
+			else {
+				String bookId = arg0.toString().split(" ")[2];
+				doBorrow(bookId);
+			}
 		}
 
 	}
